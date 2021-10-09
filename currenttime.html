@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>javascriptdemo</title>
+<script language="javascript">
+	function time() {
+		now = new Date();
+		y = now.getYear()+1900;
+		m = now.getMonth()+1;
+		d = now.getDate();
+		hour = now.getHours();
+		min = now.getMinutes();
+		sec = now.getSeconds();
+		if(hour<10){
+			hour ="0"+hour;
+		}
+		if(min<10){
+			min ="0"+min;
+		}
+		if(sec<10){
+			sec ="0"+sec;
+		}
+		if(hour<12){
+		document.getElementById("area").innerHTML= "<h1>"+y+"年"+m+"月"+d+"日"+" ---  上午  "+hour+":"+min+":"+sec+"</h1>";
+		}else if (hour<18){
+		hour -= 12;
+		document.getElementById("area").innerHTML= "<h1>"+y+"年"+m+"月"+d+"日"+" ---  下午  "+hour+":"+min+":"+sec+"</h1>";
+		}else{
+		hour -= 12;
+		document.getElementById("area").innerHTML= "<h1>"+y+"年"+m+"月"+d+"日"+" ---  晚上  "+hour+":"+min+":"+sec+"</h1>";
+		}
+		window.setTimeout("time()",1000);
+	}
+	
+</script>
+</head>
+<body onload="time()">
+	<fieldset>
+	<legend style="color:#aaaaaa;">时间</legend>
+	<p id="area">
+		
+	</p>
+	</fieldset>
+</body>
+
+</html>
